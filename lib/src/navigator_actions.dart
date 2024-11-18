@@ -63,6 +63,11 @@ class NavigatorActions implements NavigationActions {
   }
 
   @override
+  Future<T?> pushAndRemoveUntilCurrent<T extends Object?>() {
+    return _actions.pushAndRemoveUntilCurrent();
+  }
+
+  @override
   Future<T?> pushReplacement<T extends Object?>() {
     return _actions.pushReplacement();
   }

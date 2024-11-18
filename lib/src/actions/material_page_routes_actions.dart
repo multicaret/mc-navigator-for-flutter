@@ -41,6 +41,16 @@ final class MaterialPageRoutesActions with PopActions implements NavigationActio
   }
 
   @override
+  Future<T?> pushAndRemoveUntilCurrent<T extends Object?>() async {
+    Route<T> newRoute = _newRoute<T>();
+    RoutePredicate predicate = _routePredicate(_data.route);
+
+    T? res = await _navigatorState.pushAndRemoveUntil<T>(newRoute, predicate);
+    _handlePop(res);
+    return res;
+  }
+
+  @override
   Future<T?> pushReplacement<T extends Object?>() async {
     Route<T> newRoute = _newRoute<T>();
 

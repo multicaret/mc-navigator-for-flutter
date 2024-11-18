@@ -41,6 +41,18 @@ final class NamedRoutesActions with PopActions implements NavigationActions {
   }
 
   @override
+  Future<T?> pushAndRemoveUntilCurrent<T extends Object?>() async {
+    T? res = await _navigatorState.pushNamedAndRemoveUntil<T>(
+      route,
+      _routePredicate(_data.route),
+      arguments: _data.route.args,
+    );
+    // Todo(suheyl): [2024-11-05 - 5_07_a_m_] Test handle pop method
+    _handlePop(res);
+    return res;
+  }
+
+  @override
   Future<T?> pushReplacement<T extends Object?>() async {
     T? res = await _navigatorState.pushReplacementNamed(route, arguments: _data.route.args);
     _handlePop(res);

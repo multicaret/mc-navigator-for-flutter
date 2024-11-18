@@ -9,6 +9,8 @@ abstract interface class NavigationActions {
 
   Future<T?> pushAndRemoveUntil<T extends Object?>(McPageRoute pageRoute);
 
+  Future<T?> pushAndRemoveUntilCurrent<T extends Object?>();
+
   void pop();
 
   void popToFirst();
