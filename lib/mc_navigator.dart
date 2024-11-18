@@ -9,6 +9,8 @@ import 'src/interfaces/nav_short_method_contract.dart';
 import 'src/models/mc_page_route.dart';
 
 export 'src/models/dialog_route_model.dart';
+export 'src/models/mc_history_change.dart';
+export 'src/services/mc_navigation_history.dart';
 
 final class NavigatorInitializer {
   NavigatorInitializer._(NavigationType type) {

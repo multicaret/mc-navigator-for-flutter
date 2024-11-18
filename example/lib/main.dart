@@ -1,21 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mc_navigator/mc_navigator.dart';
-import 'package:navigation_history_observer/navigation_history_observer.dart';
 
 import 'app_routes.dart';
 import 'second_page.dart';
 
 void main() {
   NavigatorInitializer.setMaterial();
-
-  NavigationHistoryObserver().historyChangeStream.listen((change) {
-    if (change is HistoryChange) {
-      String? newRouteName = change.newRoute?.settings.name;
-      String? oldRouteName = change.oldRoute?.settings.name;
-      if (kDebugMode) {
-        print('⚠️ ⚠️  $oldRouteName ==> $newRouteName');
-      }
+  McNavigationHistory().historyChangeStream().listen((McHistoryChange change) {
+    change.action;
+    String? newRouteName = change.newRoute?.settings.name;
+    String? oldRouteName = change.oldRoute?.settings.name;
+    if (kDebugMode) {
+      print('⚠️ ⚠️  $oldRouteName ==> $newRouteName');
     }
   });
 
@@ -38,7 +35,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       // routes: routeList,
       navigatorObservers: <NavigatorObserver>[
-        NavigationHistoryObserver(),
+        McNavigationHistory().observer,
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
