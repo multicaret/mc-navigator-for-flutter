@@ -55,9 +55,6 @@ class MyHomePage extends StatefulWidget with NavMixin {
   State<MyHomePage> createState() => _MyHomePageState();
 
   @override
-  Map<String, String?> get args => {};
-
-  @override
   Widget get getWidget => this;
 
   @override
@@ -134,10 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class _MyAlertDialog extends AlertDialog {
   @override
-  List<Widget> actions = <Widget>[];
+  final List<Widget> actions = <Widget>[];
 
   _MyAlertDialog({
-    super.key,
     super.title = const Text('Warning!'),
     super.content = const Text('You got the maximum count value'),
     required VoidCallback onTap,
