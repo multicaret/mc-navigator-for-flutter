@@ -34,11 +34,8 @@ class ThirdPage extends StatelessWidget with NavMixin {
   }
 
   @override
-  Map<String, String?> get args => {};
-
-  @override
   Widget get getWidget => this;
 
   @override
-  McNavigationRoutes get route => AppRoutes.thirdPageRoute;
+  McNavigationRoutes get route => AppRoutes.thirdPageRoute.withArguments({'pageId': '3'});
 }

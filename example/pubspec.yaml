@@ -14,7 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   mc_navigator:
-    version: ^0.0.5
+    version: ^0.0.7
     git: https://github.com/multicaret/mc-navigator-for-flutter
 
 dev_dependencies:

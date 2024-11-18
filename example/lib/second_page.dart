@@ -34,11 +34,8 @@ class SecondPage extends StatelessWidget with NavMixin {
   }
 
   @override
-  Map<String, String?> get args => {};
-
-  @override
   Widget get getWidget => this;
 
   @override
-  McNavigationRoutes get route => AppRoutes.secondPageRoute;
+  McNavigationRoutes get route => AppRoutes.secondPageRoute.withArguments({'pageId': '2'});
 }
