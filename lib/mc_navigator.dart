@@ -48,7 +48,11 @@ mixin NavMixin implements NavShortMethodContract, PageRouteContract {
 }
 
 base class McNavigationRoutes extends McPageRoute {
-  const McNavigationRoutes(super.routeSlug, [super.routeDialog]);
+  const McNavigationRoutes(super.routeSlug, [super.routeDialog, super.args]);
+
+  McNavigationRoutes withArguments([Map<String, String?> args = const {}]) {
+    return McNavigationRoutes(routeSlug, routeDialog, args);
+  }
 
   static Map<String, WidgetBuilder> buildRouteList(List<PageRouteContract> pages) {
     return Map.fromEntries(pages.map((PageRouteContract e) {

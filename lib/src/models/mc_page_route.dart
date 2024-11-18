@@ -8,8 +8,10 @@ import 'dialog_route_model.dart';
 base class McPageRoute {
   final String _routeSlug;
   final DialogRouteModel? routeDialog;
+  final Map<String, String?> args;
 
-  const McPageRoute(String routeSlug, [this.routeDialog]) : _routeSlug = routeSlug;
+  const McPageRoute(String routeSlug, [this.routeDialog, this.args = const {}])
+      : _routeSlug = routeSlug;
 
   String get routeSlug => _routeSlug;
 

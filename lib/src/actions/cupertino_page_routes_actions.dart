@@ -55,7 +55,7 @@ final class CupertinoPageRoutesActions with PopActions implements NavigationActi
 
   Route<T> _newRoute<T>() {
     return CupertinoPageRoute<T>(
-      settings: RouteSettings(name: _data.route.routeSlug, arguments: _data.args),
+      settings: RouteSettings(name: _data.route.routeSlug, arguments: _data.route.args),
       fullscreenDialog: _data.route.isFullscreenDialog,
       barrierDismissible: _data.route.isDismissible,
       title: _data.route.title,
