@@ -1,5 +1,7 @@
 library;
 
+import 'dart:io';
+
 import 'package:flutter/widgets.dart';
 import 'package:mc_navigator/src/interfaces/page_route_contract.dart';
 import 'package:mc_navigator/src/navigator_actions.dart';
@@ -24,6 +26,13 @@ final class NavigatorInitializer {
       NavigatorInitializer._(NavigationType.cupertinoPageRoute);
 
   factory NavigatorInitializer.setNamedRoute() => NavigatorInitializer._(NavigationType.namedRoute);
+
+  factory NavigatorInitializer.byOs() {
+    if (Platform.isIOS) {
+      return NavigatorInitializer._(NavigationType.cupertinoPageRoute);
+    }
+    return NavigatorInitializer._(NavigationType.materialPageRoute);
+  }
 }
 
 mixin NavMixin implements NavShortMethodContract, PageRouteContract {
