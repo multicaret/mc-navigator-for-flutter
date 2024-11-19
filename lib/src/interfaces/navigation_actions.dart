@@ -1,3 +1,4 @@
+import 'package:mc_navigator/src/interfaces/type_def.dart';
 import 'package:mc_navigator/src/models/mc_page_route.dart';
 
 abstract interface class NavigationActions {
@@ -11,13 +12,11 @@ abstract interface class NavigationActions {
 
   Future<T?> pushAndRemoveUntilCurrent<T extends Object?>();
 
-  void pop();
+  void pop([ValueTransformer<Object?>? result]);
 
   void popToFirst();
 
   void popUntil(McPageRoute pageRoute);
 
-  Future<bool> maybePop();
-
-  /// => for NamedRoute popAndPushNamed
+  Future<bool> maybePop([ValueTransformer<Object?>? result]);
 }

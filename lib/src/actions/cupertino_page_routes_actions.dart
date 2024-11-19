@@ -19,9 +19,6 @@ final class CupertinoPageRoutesActions with PopActions implements NavigationActi
   NavigatorState get navigatorState => _navigatorState;
 
   @override
-  ValueChanged<Object?>? get onPop => _onPop;
-
-  @override
   Future<T?> push<T extends Object?>() async {
     T? res = await _navigatorState.push<T>(_newRoute<T>());
     _handlePop(res);

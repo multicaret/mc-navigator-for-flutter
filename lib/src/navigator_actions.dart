@@ -7,6 +7,7 @@ import 'actions/material_page_routes_actions.dart';
 import 'enums/navigation_type.dart';
 import 'interfaces/navigation_actions.dart';
 import 'interfaces/page_route_contract.dart';
+import 'interfaces/type_def.dart';
 
 class NavigatorActions implements NavigationActions {
   static NavigationType _type = NavigationType.main();
@@ -41,10 +42,10 @@ class NavigatorActions implements NavigationActions {
   static void updateType(NavigationType type) => _type = type;
 
   @override
-  Future<bool> maybePop() => _actions.maybePop();
+  Future<bool> maybePop([ValueTransformer<Object?>? result]) => _actions.maybePop(result);
 
   @override
-  void pop() => _actions.pop();
+  void pop([ValueTransformer<Object?>? result]) => _actions.pop(result);
 
   @override
   void popToFirst() => _actions.popToFirst();

@@ -60,3 +60,9 @@ base class McNavigationRoutes extends McPageRoute {
     }));
   }
 }
+
+extension ExtensionContextPop on BuildContext {
+  void pop<E>([E? result]) {
+    Navigator.of(this).pop<E>(result);
+  }
+}

@@ -21,9 +21,6 @@ final class MaterialPageRoutesActions with PopActions implements NavigationActio
   NavigatorState get navigatorState => _navigatorState;
 
   @override
-  ValueChanged<Object?>? get onPop => _onPop;
-
-  @override
   Future<T?> push<T extends Object?>() async {
     T? res = await _navigatorState.push<T>(_newRoute<T>());
     _handlePop(res);

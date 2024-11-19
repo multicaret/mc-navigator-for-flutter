@@ -19,9 +19,6 @@ final class NamedRoutesActions with PopActions implements NavigationActions {
   NavigatorState get navigatorState => _navigatorState;
 
   @override
-  ValueChanged<Object?>? get onPop => _onPop;
-
-  @override
   Future<T?> push<T extends Object?>() async {
     T? res = await _navigatorState.pushNamed<T>(route, arguments: _data.route.args);
     _handlePop(res);
